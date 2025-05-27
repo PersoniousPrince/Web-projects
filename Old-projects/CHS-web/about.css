@@ -1,0 +1,61 @@
+:root{
+    --bg-color: linear-gradient(45deg, violet, lightskyblue);
+    --color: black;
+    --font-family: monospace;
+    --box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    --button-background: linear-gradient(360deg, white, gray);
+    --nav-background: linear-gradient(45deg, violet, lightskyblue);
+}
+header{
+    width: 50%;
+    height: 65vh;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    color: var(--color);
+}
+#name{
+    font-size: 10rem;
+    padding: 10px;
+    color: var(--color);
+    position: relative;
+    top: 100px;
+    left: 25px;
+}
+#location{
+    padding: 10px;
+    font-size: 5rem;
+    position: relative;
+    bottom: 50px;
+}
+#career{
+    padding: 10px;
+    font-size: 4rem;
+    position: relative;
+    bottom: 150px;
+}
+aside{
+    padding: 10px;
+    width: 35%;
+    height: 65vh;
+    text-align: center;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    color: var(--color);
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 800px;
+    left: 60%;
+    line-height: 130%;
+}
+.pursuit{
+    padding: 10px;
+    font-size: 2rem;
+}
