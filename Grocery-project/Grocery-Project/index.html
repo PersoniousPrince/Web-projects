@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>My React App</title>
+</head>
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="app"></div>
+
+    <script type="text/babel">
+        Babel.transformScriptTags();
+
+        // -------------------------------------------------------------
+        // Centralized Data for Grocery Items (New Logic)
+        // This is where you map item names to their image paths
+        // -------------------------------------------------------------
+        const GROCERY_ITEMS_DATA = [
+            { id: 'apples', name: 'Fresh Apples', price: 1.99, image: 'images/apple_PNG12464.png' },
+            { id: 'milk', name: 'Organic Milk', price: 4.50, image: 'images/milk.png' }, 
+            { id: 'bread', name: 'Whole Wheat Bread', price: 3.20, image: 'images/bread.png' }, 
+            { id: 'cheese', name: 'Cheddar Cheese', price: 6.75, image: 'images/cheese.png' }, 
+            { id: 'coffee', name: 'Ground Coffee', price: 9.99, image: 'images/coffee.png' }, 
+            { id: 'oranges', name: 'Navel Oranges', price: 2.50, image: 'images/oranges.png' },
+            { id: 'salmon', name: 'Salmon Fillet', price: 12.00, image: 'images/salmon.png' },
+            { id: 'spinach', name: 'Fresh Spinach', price: 2.70, image: 'images/spinach.png' },
+            { id: 'juice', name: 'Orange Juice', price: 4.00, image: 'images/orange_juice.png' },
+            { id: 'pasta', name: 'Dry Pasta', price: 1.80, image: 'images/pasta.png' },
+        ];
+
+
+        function App() {
+            return (
+                <div className="min-h-screen bg-gray-100 flex flex-col m-4 p-4 md:p-6 lg:p-8 xl:p-10">
+                    <header className="bg-orange-600 text-white p-8 rounded-lg shadow-lg">
+                        <div className="flex justify-center items-center p-4">
+                            <h1 className="p-4 text-3xl text-black font-bold">Welcome to my grocery app</h1>
+                        </div>
+                        <NavBar />
+                    </header>
+
+                    <main className="flex-grow p-4 grid gap-4 grid-cols-4 items-stretch">
+                        {/* New Logic: Map through the data to render GroceryItem components */}
+                        {GROCERY_ITEMS_DATA.map(item => (
+                            <GroceryItem
+                                key={item.id} // Use a unique ID for the key
+                                name={item.name}
+                                price={item.price}
+                                image={item.image}
+                            />
+                        ))}
+                    </main>
+                </div>
+            );
+        }
+
+        function GroceryItem(props) {
+            const { name, price, image } = props;
+
+            return (
+                <div className="bg-white p-4 rounded-md shadow-sm text-gray-800 flex flex-col justify-between">
+                    {/* New Logic: Render the image using the 'image' prop */}
+                    <img src={image} alt={name} className="w-full h-32 object-contain mb-2" />
+                    <span className="font-semibold text-lg">{name}</span>
+                    <span className="text-gray-600 text-sm mb-4">${price.toFixed(2)}</span> {/* Display price */}
+                    <button className="transition-all duration-75 active:scale-105 active:bg-white active:text-green-700 active:shadow-md self-end px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                        Add to Cart
+                    </button>
+                </div>
+            );
+        }
+
+        function GroceryCart(){
+            return(
+                <button className=""></button>
+            );
+        }
+
+        function NavBar() {
+            const options = ['All', 'Soup', 'Sushi', 'SeaFood', 'Vegan', 'Drinks'];
+
+            const optionSelector = options.map((option, index) => {
+                return (
+                    <button
+                        key={`option_${index}`}
+                        className="px-4 py-2 border border-solid border-black rounded-lg text-white font-medium mx-1 hover:bg-neutral-200 transition delay-150 duration-300 hover:text-black"
+                    >
+                        {option}
+                    </button>
+                );
+            });
+
+            return (
+                <nav className="flex justify-center justify-evenly items-center flex-wrap gap-2">
+                    {optionSelector}
+                </nav>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('app'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
