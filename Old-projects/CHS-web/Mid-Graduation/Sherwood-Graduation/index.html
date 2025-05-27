@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Page React & Tailwind Demo</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        /* Essential: Ensure html and body take full height for the background */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Ensures body can center its direct child */
+            align-items: center; /* Vertically centers the #app div */
+            justify-content: center; /* Horizontally centers the #app div */
+        }
+    </style>
+</head>
+<body class="min-h-screen w-full bg-cover bg-center bg-no-repeat" style="background-image: url('https://wallpaperaccess.com/full/3494808.jpg');">
+    <noscript>You have to enable scripts to see this website</noscript>
+    
+    <div id="app"></div>
+
+    <script type="text/babel">
+        function App() {
+            // It's cleaner to define large lists outside the return statement
+            const names = [
+                "Albatayneh, Paisley A", "Alexandre, Faith E", "Anderson, Levander C", "Ansu Gyeabour, Kwadwo",
+                "Bathurst, Isabella G", "Biswa, Ayush", "Booker, Janiyah E", "Booker, William L",
+                "Briggs, Isaiah J", "Brown, Christina", "Burdine, Mychael", "Caceres Acosta, Jerisson O",
+                "Castaneda, Jocelyn N", "Castelo Jimenez, Januel A", "Castro Romero, Moises A", "Charles, Marcus",
+                "Clayborn, Chace C", "Cleveland, Neilani C", "Coleman, LeeAndre L", "Collier, Amir A",
+                "Cooper-Stanley, Jamarion R", "Cortledge, Miramani", "Daniels, Kladane M", "Deramus, Troy L",
+                "Diallo, Mariatou B", "Dioubate, Dav'Quel M", "Duncan, Ja Nya L", "Falls, Tyreon D",
+                "Falls, Tyreona M", "Fields, Alyce T", "Fields, Tah'Kierah S", "Fofana, Aminata",
+                "Francois, Marie E", "Garcia, Justin", "Gilliam, Naliyah A", "Glover, Bailey Lynne K",
+                "Gordillo Agudelo, Antonella", "Guglielmi, Grace", "Hailemichael, Semhal K", "Hammond, Da'Quan D",
+                "Heard, Kay'Leon L", "Hearns, Aniyah N", "Hernandez Barrios, Esmeralda L", "Hoffman, Jeremiah L",
+                "Hoffman, Serenatee J", "Holloman, Brilynne F", "Huntzinger, Sophia T", "Issa, Nour I",
+                "Jackson, Kaydrian J", "Jackson, Na'Sere", "Jean, Christopher", "Jenkins, Kymani C",
+                "Johnson, Chase E", "Johnson, Javaz E", "Johnson, Jeremiah A", "Jones, Aiden L",
+                "Jones, Jenesis", "Jones, Prince K", "Jones, Seraya N", "Jusma, Bianca K",
+                "Kesete, Milat K", "Koundourou, Elhadg I", "Lane, Laramonte", "Lara Perez, Joanna P",
+                "Lenox-Johnson, Kavaeh J", "Lewis, Taydriana I", "Lopez-Hernandez, Dania G", "Love, Naja'h A",
+                "Loza Ibarra, Andrea", "Luque Valladares, Aaron J", "Marteina, Kris L", "Martinez Natividad, Betsey A",
+                "Martinez-Cabeza, Dayana L", "Mccullough, Aneko", "Melgar Coto, Emerson Y", "Mendieta Loza, Stephanie R",
+                "Messan, Grace A", "Michael, Nolawit", "Miller, Wyatt", "Moore, Jada A",
+                "Mundele, Jessica", "Munguia, Eduardo", "Ndiaye, Aldiouma", "Ndomateso, Benedicte M",
+                "O'Connor, Vaiden X", "Oswalt, Dayjuan R", "Pacheco Monge, Edwin", "Palmer, I'Yana L",
+                "Parks, Ty'quan J", "Perez de Leon, Amos", "Pierce, Naomi K", "Posey, Allen M",
+                "Powell, DezaRhae", "Quest, Taylor J", "Rai, Anjila", "Ramos-Membreno, Katie J",
+                "Rodriguez, Daisy L", "Rojo-Garcia, Jaqueline", "Roush, Jamayla J", "Shahadu, Awal M",
+                "Shelton, Brey'Lonn M", "Smith-Gray, Samiyah M", "Southall, Connor", "Stephenson, Taviya C",
+                "Stiver, Aidan P", "Thomas, Jeffnie-Samarha", "Thompson, Daniel L", "Thompson, Ma'Kiya R",
+                "Tolbert, Myonni", "Trent, Ira J", "Turner, Phillip L", "Vazquez Ramirez, Ryan D",
+                "Wilson, Corey", "Woodfork, Maxwell J", "Woods, Karly M", "Woody, Aniah D",
+                "Ysturiz Rosas, Frainelly D", "Zebib, Nadia S", "Zeigler, Cameron", "Zeigler, Tyra S"
+            ];
+
+            return (
+                <div className="border-4 border-amber-400 bg-white bg-opacity-90 rounded-lg shadow-2xl p-6 md:p-10 max-w-5xl w-11/12 max-h-[90vh] overflow-auto flex flex-col items-center justify-start text-black">
+                    
+                    {/* Main title for the sequence */}
+                    <h1 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Sequence of Events</h1>
+
+                    {/* Wrapper for the sequence items to control their layout */}
+                    <div className="text-base md:text-lg w-full px-2 text-left mb-8">
+                        <p className="mb-2"><strong>Entrance of Scholars</strong></p>
+                        <p className="mb-2"><strong>Welcoming Remarks</strong><span className="float-right">Mr. Frazier</span></p>
+                        <p className="mb-2"><strong>Musical Selection</strong><span className="float-right">Faith Alexander, Max Woodfork</span></p>
+                        <br />
+                        <p className="mb-2"><strong>Keynote Speaker</strong><span className="float-right">Judge Jaiza Page</span></p>
+                        <p className="mb-2 pl-4 text-sm text-gray-600"><em>Introduction by Alkia Page</em></p>
+                        <p className="mb-2"><strong>Presentation of Certificates</strong><span className="float-right">Ms. Sappington</span></p>
+                        <p className="mb-2 pl-4 text-sm text-gray-600"><em>Ms. Enoch, Mrs. Barnhart, Mrs. Rhoads, Mr. O’Donovan, Mr. Renuart, Ms. Marple, Ms. Roseberry, Ms. Glenn, Mr. Shriner</em></p>
+                        <br />
+                        <p className="mb-2"><strong>Additional Remarks</strong><span className="float-right">Sherwood Staff</span></p>
+                        <p className="mb-2"><strong>Final Remarks</strong><span className="float-right">Ms. Glass</span></p>
+                        <p className="mt-4"><strong>Exit of Scholars</strong></p>
+                    </div>
+
+                    {/* Title for the names section */}
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">Scholar Names</h2>
+
+                    {/* Grid for the names */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-1 text-sm text-gray-700 w-full px-2">
+                        {names.map((name, index) => (
+                            <p key={index}>{name}</p>
+                        ))}
+                    </div>
+                    <MySignature />
+                </div>
+            );
+        }
+
+        function MySignature() {
+            return (
+                <div className="bg-neutral-700 w-full h-[10%] text-white font-semibold p-2 rounded-md my-2">
+                    <h1> Created By: Prince Jones K</h1>
+                </div>
+            );
+        };
+
+        ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+    </script>
+</body>
+</html>
